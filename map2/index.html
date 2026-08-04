@@ -4,32 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Map</title>
-
-  <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/93930/leaflet.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lafeber/world-flags-sprite@master/flags32.css">
-  <link rel="stylesheet" href="./style.css">
-
-  <!-- JS Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
-  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/93930/angular-leaflet-directive.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-leaflet-directive/0.10.0/angular-leaflet-directive.min.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; width: 100%; }
+    .angular-leaflet-map { width: 100%; height: 100vh; }
+  </style>
 </head>
 <body ng-controller="GermanMapCtrl">
-
   <leaflet center="center" events="events" legend="legend" defaults="defaults" geojson="geojson"></leaflet>
-
-  <div class="map-box country-data f32">
-    <div class="col flag" ng-class="selectedCountryData.flag"></div>
-    <div class="col">
-      <span class="row">{{selectedCountryData.en.name || selectedCountry.properties.name || ''}}</span>
-    </div>
-  </div>
-
-  <div ng-show="showCenterCoords" class="map-box coordinates">
-    center: {lat: {{center.lat | number:4}}, lng: {{center.lng | number:4}}, zoom: {{center.zoom}}}
-  </div>
-
   <script src="./script.js"></script>
 </body>
 </html>
